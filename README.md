@@ -1,17 +1,16 @@
 # <b>Creating and running software containers with Singularity</b>
-### <i>How to use [Singularity](http://singularity.lbl.gov)! </i>
+### <i>How to use [Singularity](https://www.sylabs.io/)! </i>
 
 <img src="assets/SingularityLogo.png" width="250">
 
 This is an introductory workshop on Singularity. It was originally taught by David Godlove at the [NIH HPC](https://hpc.nih.gov/), but the content has since been adapted to a general audience.  For more information about the topics covered here, see the following:
 
-- [Singularity Home](http://singularity.lbl.gov/)
-- [Singularity on GitHub](https://github.com/singularityware/singularity)
+- [Singularity Home](https://www.sylabs.io/)
+- [Singularity on GitHub](https://github.com/sylabs/singularity)
 - [Singularity on Google Groups](https://groups.google.com/a/lbl.gov/forum/#!forum/singularity)
 - [Singularity at the NIH HPC](https://hpc.nih.gov/apps/singularity.html)
-- [Docker documentation](https://docs.docker.com/)
+- [Sylabs Library](https://cloud.sylabs.io/library)
 - [Singularity Hub](https://singularity-hub.org/)
-- [Docker Hub](https://hub.docker.com/)
 
 ## Hour 1 (Introduction and Installation)
 
