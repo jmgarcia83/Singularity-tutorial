@@ -1,7 +1,7 @@
 # <b>Creating and running software containers with Singularity</b>
 ### <i>How to use [Singularity](https://www.sylabs.io/)! </i>
 
-<img src="assets/SingularityLogo.png" width="250">
+<img src="Assets/SingularityLogo.png" width="250">
 
 This is an introductory workshop on Singularity. It was originally taught by David Godlove at the [NIH HPC](https://hpc.nih.gov/), but the content has since been adapted to a general audience.  For more information about the topics covered here, see the following:
 
