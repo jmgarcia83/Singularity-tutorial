@@ -47,36 +47,6 @@ Because of their differences, VMs and containers serve different purposes and sh
 - VMs are good for long running interactive sessions where you may want to use several different applications.  (Checking email on Outlook and using Microsoft Word and Excel).
 - Containers are better suited to running one or two applications non-interactively in their own custom environments.
 
-### Docker
-
-[Docker](https://www.docker.com/) is currently the most widely used container software.  It has several strengths and weaknesses that make it a good choice for some projects but not for others.
-
-**philosophy**
-
-Docker is built for running multiple containers on a single system and it allows containers to share common software features for efficiency.  It also seeks to fully isolate each container from all other containers and from the host system.  
-
-Docker assumes that you will be a root user.  Or that it will be OK for you to elevate your privileges if you are not a root user.    
-
-**strengths**
-
-- Mature software with a large user community
-- [Docker Hub](https://hub.docker.com/)!
-    - A place to build and host your containers
-    - Fully integrated into core Docker
-    - Over 100,000 pre-built containers
-    - Provides an ecosystem for container orchestration
-- Rich feature set
-
-**weaknesses**
-
-- Difficult to learn
-    - Hidden innards 
-    - Complex container model (layers)
-- Not architected with security in mind
-- Not built for HPC (but good for cloud) 
-
-Docker shines for DevOPs teams providing cloud-hosted micro-services to users.
-
 ### Singularity 
 
 [Singularity](http://singularity.lbl.gov/) is a relatively new container software originally developed by Greg Kurtzer while at Lawrence Berkley National labs.  It was developed with security, scientific software, and HPC systems in mind.  
