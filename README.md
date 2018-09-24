@@ -93,24 +93,22 @@ $ sudo yum install wget epel-release
 $ sudo yum install debootstrap.noarch
 ```
 
-Next we'll download a compressed archive of the source code (using the the `wget` command). Then we'll extract the source code from the archive (with the `tar` command).
+now clone the repo and build the source code
 
 ```
-$ wget https://github.com/singularityware/singularity/releases/download/2.4/singularity-2.4.tar.gz
-
-$ tar xvf singularity-2.4.tar.gz
+git clone https://github.com/sylabs/singularity.git
 ```
 
 Finally it's time to build and install!
 
 ```
-$ cd singularity-2.4
+$ cd singularity
 
-$ ./configure --prefix=/usr/local
+$ ./mconfig
 
-$ make 
+$ make -C builddir/ -j$(nrpoc)
 
-$ sudo make install
+$ sudo make -C builddir/ install
 ```
 
 If you want support for tab completion of Singularity commands, you need to source the appropriate file and add it to the bash completion directory in `/etc` so that it will be sourced automatically when you start another shell.
