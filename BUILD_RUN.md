@@ -197,20 +197,16 @@ BootStrap: debootstrap
 OSVersion: trusty
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
-
-%runscript
-    echo "This is what happens when you run the container..."
-
-
 %post
-    echo "Hello from inside the container"
-    sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get update
-    apt-get -y install vim fortune cowsay lolcat
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
 
 %environment
-    export PATH=/usr/games:$PATH
     export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat
 ```
 
 Let's rebuild the container with the new definition file.
