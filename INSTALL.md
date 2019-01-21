@@ -32,11 +32,13 @@ $ source ~/.bashrc
 
 We're going to compile Singularity from source code.  First we'll need to make sure we have some development tools installed so that we can do that.  On Ubuntu, run these commands to make sure you have all the necessary packages installed.
 
+ON a DEB based OS, these commmands should get you up to speed:
+
 ```
 $ sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev
 ```
 
-On CentOS, these commmands should get you up to speed.
+On RPM based OS's, these commmands should get you up to speed.
 
 ```
 $ sudo yum update
@@ -92,4 +94,4 @@ _________________________________________
 
 Your cow will likely say something different (and be more colorful), but as long as you see a cow your installation is working properly.
 
-This command downloads and runs a container from [Docker Hub](https://hub.docker.com/r/godlovedc/lolcow/).  During this tutorial we will learn how to build a similar container from scratch.
+This command downloads and runs a container from [Sylabs Library](https://cloud.sylabs.io/library/_container/5b9e91c694feb900016ea40b).  During this tutorial we will learn how to build a similar container from scratch.
