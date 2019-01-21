@@ -41,7 +41,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 ```
 
-See the [Singularity docs](http://singularity.lbl.gov/docs-recipes) for an explanation of each of these sections.
+See the [Singularity docs](https://www.sylabs.io/guides/3.0/user-guide/definition_files.html) for an explanation of each of these sections.
 
 Now let's use this recipe file as a starting point to build our `lolcow.img` container. Note that the build command requires `sudo` privileges, when used in combination with a recipe file.
 
@@ -49,11 +49,11 @@ Now let's use this recipe file as a starting point to build our `lolcow.img` con
 $ sudo singularity build --sandbox lolcow Singularity
 ```
 
-The `--sandbox` option in the command above tells Singularity that we want to build a special type of container for development purposes.
+The `--sandbox` option in the command above tells Singularity that we want to build a special type of image (File system) for development purposes.
 
-Singularity can build containers in several different file formats. The default is to build a [squashfs](https://en.wikipedia.org/wiki/SquashFS) image. The squashfs format is compressed and immutable making it a good choice for reproducible, production-grade containers.
+Singularity can build containers in several different file formats. The default is to build a [SIF](https://github.com/sylabs/sif) image. SIF is an open source implementation of the Singularity Container Image Format that makes it easy to create complete and encapsulated container enviroments stored in a single file.
 
-But if you want to shell into a container and tinker with it (like we will do here), you should build a sandbox (which is really just a directory).  This is great when you are still developing your container and don't yet know what should be included in the recipe file.
+But if you want to shell into a container and tinker with it (like we will do here), you should build a sandbox (which is really just a file system under a foler directory).  This is great when you are still developing your container and don't yet know what should be included in the recipe file.
 
 When your build finishes, you will have a basic Ubuntu container saved in a local directory called `lolcow`.
 
@@ -94,7 +94,7 @@ eduardo-laptop
 
 This is one of the core features of Singularity that makes it so attractive from a security standpoint.  The user remains the same inside and outside of the container.
 
-Let's try installing some software. I used the programs `fortune`, `cowsay`, and `lolcat` to produce the container that we saw in the first demo.
+Let's try installing some software. For building lolcow we first need the programs `fortune`, `cowsay`, and `lolcat` to produce the container that we saw in the first demo.
 
 ```
 Singularity lolcow:~> sudo apt-get update && sudo apt-get -y install fortune cowsay lolcat
@@ -221,7 +221,7 @@ $ sudo singularity build lolcow.simg Singularity
 
 Note that we changed the name of the container.  By omitting the `--sandbox` option, we are building our container in the standard Singularity squashfs file format.  We are denoting the file format with the (optional) `.simg` extension.  A squashfs file is compressed and immutable making it a good choice for a production environment.
 
-Singularity stores a lot of [useful metadata](http://singularity.lbl.gov/docs-environment-metadata).  For instance, if you want to see the recipe file that was used to create the container you can use the `inspect` command like so:
+Singularity stores a lot of [useful metadata](https://www.sylabs.io/guides/3.0/user-guide/environment_and_metadata.html).  For instance, if you want to see the recipe file that was used to create the container you can use the `inspect` command like so:
 
 ```
 $ singularity inspect --deffile lolcow.simg
