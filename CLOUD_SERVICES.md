@@ -2,6 +2,8 @@
 
 In this sections we will build learn how to push our `lolcow.sif` image into the sylabs library, then to pull it from a different host, and how can we add security verification to those steps by signing our image with a PGP protocol.
 
+Also we will learn how to use the sylabs cloud builder to build our image without root privileges.
+
 ### The container library
 
 On 2018 Sylabs launched the Container Library, a comfortable home for SIF basded containers. Available as a cloud service, or for on-prem deployment, the Library will be available to manage, store and share containers. The cloud service portion will offer common Linux distributions, programming languages and AI frameworks, which will be updated regularly. A clear web interface and simple command-line syntax will let you search across containers and `singularity pull` them down to your system.
