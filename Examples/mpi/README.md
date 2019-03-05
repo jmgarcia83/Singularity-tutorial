@@ -27,7 +27,7 @@ $ sudo singularity exec -w -B /home ../centos-7 make install
 ```
 ### Build the OpenMPI ring example and place the binary in this directory
 ```
-$ singularity exec centos-7 mpicc openmpi-4.0.0/examples/ring_c.c -o ring
+$ singularity exec centos-7 mpicc openmpi-2.1.0/examples/ring_c.c -o ring
 
 $ sudo singularity exec -w -B /home centos-7 cp ring /usr/bin/ring
 ```
