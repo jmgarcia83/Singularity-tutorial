@@ -12,9 +12,9 @@ $ sudo singularity exec -w centos-7.sif yum groupinstall -y "Development Tools"
 ```
 ### Obtain the stable version of Open MPI
 ```
-$ wget https://www.open-mpi.org/software/ompi/v4.0/downloads/openmpi-4.0.0.tar.bz2
-$ tar -xf openmpi-4.0.0.tar.bz2
-$ cd openmpi-4.0.0
+$ wget https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.0.tar.bz2
+$ tar -xf openmpi-2.1.0.tar.bz2
+$ cd openmpi-2.1.0
 $ singularity exec ../centos-7 ./configure --prefix=/usr/local
 $ singularity exec ../centos-7 make -j$(nrpoc)
 ```
