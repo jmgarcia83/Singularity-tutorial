@@ -3,7 +3,7 @@
 Up to now all of our examples have run Singularity containers in the foreground.  But what if you want to run a service like a web server or a database in a Singularity container in the background?
 
 #### lolcow (useless) example
-In Singularity v3.0, you can use the [`instance` command group](https://www.sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images) to start and control container instances that run in the background.  To demonstrate, let's start an instance of our `lolcow.simg` container running in the background.
+In Singularity v3.0, you can use the [`instance` command group](https://www.sylabs.io/guides/3.0/user-guide/quick_start.html#interact-with-images) to start and control container instances that run in the background.  To demonstrate, let's start an instance of our `lolcow.sif` container running in the background.
 
 ```
 $ singularity instance start lolcow.simg cow1
@@ -14,7 +14,7 @@ We can use the `instance list` command to show the instances that are currently 
 ```
 $ singularity instance.list
 DAEMON NAME      PID      CONTAINER IMAGE
-cow1             10794    /home/dave/lolcow.simg
+cow1             10794    /home/eduardo/lolcow.sif
 ```
 
 We can connect to running instances using the `instance://` URI like so:
@@ -23,13 +23,13 @@ We can connect to running instances using the `instance://` URI like so:
 $ singularity shell instance://cow1
 Singularity: Invoking an interactive shell within container...
 
-Singularity lolcow.simg:~> ps -ef
+Singularity lolcow.sif:~> ps -ef
 UID        PID  PPID  C STIME TTY          TIME CMD
-dave         1     0  0 19:05 ?        00:00:00 singularity-instance: dave [cow1]
-dave         3     0  0 19:06 pts/0    00:00:00 /bin/bash --norc
-dave         4     3  0 19:06 pts/0    00:00:00 ps -ef
+eduardo         1     0  0 19:05 ?        00:00:00 singularity-instance: eduardo [cow1]
+eduardo         3     0  0 19:06 pts/0    00:00:00 /bin/bash --norc
+eduardo         4     3  0 19:06 pts/0    00:00:00 ps -ef
 
-Singularity lolcow.simg:~> exit
+Singularity lolcow.sif:~> exit
 ```
 
 Note that we've entered a new PID namespace, so that the `singularity-instance` process has PID number 1.
@@ -37,31 +37,31 @@ Note that we've entered a new PID namespace, so that the `singularity-instance` 
 You can start multiple instances running in the background, as long as you give them unique names.
 
 ```
-$ singularity instance start lolcow.simg cow2
+$ singularity instance start lolcow.sif cow2
 
-$ singularity instance start lolcow.simg cow3
+$ singularity instance start lolcow.sif cow3
 
 $ singularity instance.list
 DAEMON NAME      PID      CONTAINER IMAGE
-cow1             10794    /home/dave/lolcow.simg
-cow2             10855    /home/dave/lolcow.simg
-cow3             10885    /home/dave/lolcow.simg
+cow1             10794    /home/eduardo/lolcow.sif
+cow2             10855    /home/eduardo/lolcow.sif
+cow3             10885    /home/eduardo/lolcow.sif
 ```
 
 You can stop individual instances using their unique names or stop all instances with the `--all` option.
 
 ```
 $ singularity instance stop cow1
-Stopping cow1 instance of /home/dave/lolcow.simg (PID=10794)
+Stopping cow1 instance of /home/eduardo/lolcow.sif (PID=10794)
 
 $ singularity instance stop --all
-Stopping cow2 instance of /home/dave/lolcow.simg (PID=10855)
-Stopping cow3 instance of /home/dave/lolcow.simg (PID=10885)
+Stopping cow2 instance of /home/eduardo/lolcow.sif (PID=10855)
+Stopping cow3 instance of /home/eduardo/lolcow.sif (PID=10885)
 ```
 
 #### nginx (useful) example
 
-These examples are not very useful because `lolcow.simg` doesn't run any services.  Let's extend the example to something useful by running a local nginx web server in the background.  This command will download the official nginx image from Docker Hub and start it in a background instance called "web".  (The commands need to be executed as root so that nginx can run with the privileges it needs.)
+These examples are not very useful because `lolcow.sif` doesn't run any services.  Let's extend the example to something useful by running a local nginx web server in the background.  This command will download the official nginx image from Docker Hub and start it in a background instance called "web".  (The commands need to be executed as root so that nginx can run with the privileges it needs.)
 
 ```
 $ sudo singularity instance.start docker://nginx web
