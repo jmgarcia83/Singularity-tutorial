@@ -95,3 +95,21 @@ _________________________________________
 Your cow will likely say something different (and be more colorful), but as long as you see a cow your installation is working properly.
 
 This command downloads and runs a container from [Sylabs Library](https://cloud.sylabs.io/library/_container/5b9e91c694feb900016ea40b).  During this tutorial we will learn how to build a similar container from scratch.
+
+### Install image buidling dependencies
+You may want to build images from their official repositories like debootstrap, yum or zypper, you "may" need to install these depending on the OS you are
+
+e.g
+if you get the following error
+```
+vagrant@ubuntu-bionic:~$ sudo singularity build --sandbox lolcow deffiles/Singularity
+WARNING: Authentication token file not found : Only pulls of public images will succeed
+INFO:    Starting build...
+FATAL:   While performing build: conveyor failed to get: debootstrap is not in PATH... Perhaps 'apt-get install' it: exec: "debootstrap": executable file not found in $PATH
+```
+
+that means that your host doesn't have debootstrap installed, but you are trying to run a build from it, so you need to install it in order to proceed with your build.
+
+```
+sudo apt-get install debootstrap
+```
