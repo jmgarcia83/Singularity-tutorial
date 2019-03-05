@@ -25,14 +25,11 @@ $ vim Singularity
 It should look something like this:
 
 ```
-BootStrap: debootstrap
-OSVersion: trusty
-MirrorURL: http://us.archive.ubuntu.com/ubuntu/
-
+BootStrap: library
+From: ubuntu:latest
 
 %runscript
     echo "This is what happens when you run the container..."
-
 
 %post
     echo "Hello from inside the container"
@@ -193,9 +190,8 @@ $ nano Singularity
 Here is what our updated definition file should look like.
 
 ```
-BootStrap: debootstrap
-OSVersion: trusty
-MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+BootStrap: library
+From: ubuntu:latest
 
 %post
     apt-get -y update
@@ -212,33 +208,28 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 Let's rebuild the container with the new definition file.
 
 ```
-$ sudo singularity build lolcow.simg Singularity
+$ sudo singularity build lolcow.sif Singularity
 ```
 
-Note that we changed the name of the container.  By omitting the `--sandbox` option, we are building our container in the standard Singularity squashfs file format.  We are denoting the file format with the (optional) `.simg` extension.  A squashfs file is compressed and immutable making it a good choice for a production environment.
+Note that we changed the name of the container.  By omitting the `--sandbox` option, we are building our container in the standard Singularity squashfs file format.  We are denoting the file format with the (optional) `.sif` extension (Singularity image format).  A squashfs file is compressed and immutable making it a good choice for a production environment.
 
 Singularity stores a lot of [useful metadata](https://www.sylabs.io/guides/3.0/user-guide/environment_and_metadata.html).  For instance, if you want to see the recipe file that was used to create the container you can use the `inspect` command like so:
 
 ```
-$ singularity inspect --deffile lolcow.simg
-BootStrap: debootstrap
-OSVersion: trusty
-MirrorURL: http://us.archive.ubuntu.com/ubuntu/
-
-
-%runscript
-    echo "This is what happens when you run the container..."
-
+$ singularity inspect --deffile lolcow.sif
+BootStrap: library
+From: ubuntu:latest
 
 %post
-    echo "Hello from inside the container"
-    sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get update
-    apt-get -y install vim fortune cowsay lolcat
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
 
 %environment
-    export PATH=/usr/games:$PATH
     export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat
 ```
 
 ### Blurring the line between the container and the host system.
@@ -248,7 +239,7 @@ Singularity does not try to isolate your container completely from the host syst
 Using the exec command, we can run commands within the container from the host system.
 
 ```
-$ singularity exec lolcow.simg cowsay 'How did you get out of the container?'
+$ singularity exec lolcow.sif cowsay 'How did you get out of the container?'
  _______________________________________
 < How did you get out of the container? >
  ---------------------------------------
@@ -264,7 +255,7 @@ In this example, singularity entered the container, ran the `cowsay` command, di
 You can also use pipes and redirection to blur the lines between the container and the host system.
 
 ```
-$ singularity exec lolcow.simg cowsay moo > cowsaid
+$ singularity exec lolcow.sif cowsay moo > cowsaid
 
 $ cat cowsaid
  _____
@@ -282,7 +273,7 @@ We created a file called `cowsaid` in the current working directory with the out
 We can also pipe things _into_ the container.
 
 ```
-$ cat cowsaid | singularity exec lolcow.simg cowsay -n
+$ cat cowsaid | singularity exec lolcow.sif cowsay -n
  ______________________________
 /  _____                       \
 | < moo >                      |
