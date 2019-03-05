@@ -5,7 +5,7 @@
 As we demonstrated earlier, pipes and redirects work as expected between a container and host system.  If you need to pipe the output of one command in your container to another command in your container things may be more complicated.
 
 ```
-$ singularity exec lolcow.img fortune | singularity exec lolcow.img cowsay
+$ singularity exec lolcow.sif fortune | singularity exec lolcow.sif cowsay
 ```
 
 ### X11 and OpenGL
