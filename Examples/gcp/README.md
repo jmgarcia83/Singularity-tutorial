@@ -19,5 +19,6 @@ Select SingularityPRO-25 from the Google Cloud Launcher console and click Launch
 <img src="../../Assets/gcp-4.png" width="750">
 We now have a running GCP instance with SingularityPRO-25 packed!
 <img src="../../Assets/gcp-s5.png" width="750">
-### check and start deploying your containers
+
+### Check and start deploying your containers
 <img src="../../Assets/gcp-s6.png" width="750">
