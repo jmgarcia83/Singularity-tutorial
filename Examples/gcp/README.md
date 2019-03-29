@@ -10,7 +10,9 @@ Select SingularityPRO-25 from the Google Cloud Launcher console and click Launch
 2. Choose a machine type with at least 6GB of RAM; SingularityPRO-25 is charge free, you will only pay for the machine resource
 3. Click Deploy
 <img src="../../Assets/gcp-s2.png" width="750">
+
 ### Wait for it...
+
 4. See it run! Save the Admin URL, user and password for the next steps.
 <img src="../../Assets/gcp-3.png" width="750">
 5. Click on the SSH icon
