@@ -68,7 +68,6 @@ Singularity shines for scientific software running in an HPC environent.  We wil
  - [Step 2 - Build and Run](BUILD_RUN.md)
  - [Step 3 - Cloud services](CLOUD_SERVICES.md)
  - [Step 4 - Instances](INSTANCES.md)
- - [Step 5 - GPU](GPU.md)
 
 Want to learn more:
  - [Miscellaneous](MISCELLANEOUS.md)
