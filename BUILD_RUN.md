@@ -26,14 +26,13 @@ It should look something like this:
 
 ```
 BootStrap: library
-From: ubuntu:latest
+From: ubuntu:16.04
 
 %runscript
     echo "This is what happens when you run the container..."
 
 %post
     echo "Hello from inside the container"
-    sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get -y install vim
 
 ```
@@ -191,7 +190,7 @@ Here is what our updated definition file should look like.
 
 ```
 BootStrap: library
-From: ubuntu:latest
+From: ubuntu:16.04
 
 %post
     apt-get -y update
@@ -218,7 +217,7 @@ Singularity stores a lot of [useful metadata](https://www.sylabs.io/guides/3.0/u
 ```
 $ singularity inspect --deffile lolcow.sif
 BootStrap: library
-From: ubuntu:latest
+From: ubuntu:16.04
 
 %post
     apt-get -y update
