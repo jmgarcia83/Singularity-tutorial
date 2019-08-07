@@ -60,7 +60,7 @@ Singularity assumes that you will have a build system where you are the root use
 - [Singularity Hub](https://singularity-hub.org/)!
     - A place to build and host your containers similar to Docker Hub
 
-Singularity shines for scientific software running in an HPC environent.  We will use it for the remainder of the class.
+Singularity shines for scientific software running in an HPC environment.  We will use it for the remainder of the class.
 
 ## Tutorial steps
 
