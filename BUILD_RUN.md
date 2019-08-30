@@ -66,17 +66,19 @@ Depending on the environment on your host system you may see your prompt change.
 ```
 Singularity lolcow:~> cat /etc/os-release
 NAME="Ubuntu"
-VERSION="14.04, Trusty Tahr"
+VERSION="16.04.5 LTS (Xenial Xerus)"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 14.04 LTS"
-VERSION_ID="14.04"
+PRETTY_NAME="Ubuntu 16.04.5 LTS"
+VERSION_ID="16.04"
 HOME_URL="http://www.ubuntu.com/"
 SUPPORT_URL="http://help.ubuntu.com/"
 BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+VERSION_CODENAME=xenial
+UBUNTU_CODENAME=xenial
 ```
 
-No matter what OS is running on your host, your container is running Ubuntu 14.04!
+No matter what OS is running on your host, your container is running Ubuntu 16.04!
 
 Let's try a few more commands:
 
