@@ -33,6 +33,7 @@ From: ubuntu:16.04
 
 %post
     echo "Hello from inside the container"
+    apt-get update
     apt-get -y install vim
 
 ```
