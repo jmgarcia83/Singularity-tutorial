@@ -61,7 +61,7 @@ $ cd singularity
 
 $ ./mconfig -p /usr/local
 
-$ make -C builddir/ -j$(nrpoc)
+$ make -C builddir/ -j$(nproc)
 
 $ sudo make -C builddir/ install
 ```
